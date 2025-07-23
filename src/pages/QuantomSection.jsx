@@ -47,7 +47,7 @@ const QuantomSection = () => {
   }, []);
 
   return (
-    <div className="flex flex-col xl:flex-row items-center justify-between gap-10 w-full">
+    <div className="flex flex-col xl:flex-row items-center justify-between 2xl:space-x-52 w-full">
       <div>
         <Image src={buildWithQuantom} alt="Build With Quantom" />
       </div>

@@ -5,20 +5,18 @@ import futureSvg from "../../public/images/Future.svg";
 import isSvg from "../../public/images/Is.svg";
 import rareSvg from "../../public/images/Rare.svg";
 import robotSvg from "../../public/images/robot-future.svg";
+import redCenterBlur from "../../public/images/red-hero-center-blur.svg";
+import redLeftBlur from "../../public/images/future-center-blur.svg";
 
 const FutureSection = () => {
   return (
     <div className="relative w-full min-h-screen  overflow-hidden">
-      {/* Background gradient overlay */}
       <div className="absolute inset-0 "></div>
 
-      {/* Main content container */}
       <div className="relative z-10 flex items-center justify-center min-h-screen">
         <div className="w-full">
-          {/* Top section with "The" and Lorem text */}
           <div className="flex justify-between items-start mb-8 ">
-            {/* The SVG */}
-            <div className="flex-shrink-0 z-0 absolute 2xl:left-[200px]">
+            <div className="flex-shrink-0 z-10 absolute 2xl:left-[200px]">
               <Image
                 src={theSvg}
                 alt="The"
@@ -26,7 +24,16 @@ const FutureSection = () => {
               />
             </div>
 
-            {/* Lorem ipsum text */}
+            <div className="absolute z-0 2xl:w-[900px] 2xl:-top-10 ">
+              <Image src={redCenterBlur} className="w-full h-full z-0" />
+            </div>
+
+            
+            <div className="absolute z-0 2xl:w-[900px] 2xl:right-0 2xl:-top-10 ">
+              <Image src={redLeftBlur} className="w-full h-full z-0" />
+            </div>
+
+
             <div className=" ml-8 mt-4 absolute 2xl:right-[0px] 2xl:top-[50px] w-[562px]">
               <p className="text-[20px] text-white leading-[160%] custom-tracking">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

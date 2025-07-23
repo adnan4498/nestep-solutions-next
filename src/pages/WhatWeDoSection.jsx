@@ -88,11 +88,11 @@ const WhatWeDoSection = () => {
 
       <div className="2xl:mt-[100px] relative">
         <div>
-          <Image src={robotImg} className="rounded-4xl" />
+          <Image src={robotImg} className="rounded-4xl 3xl:w-full" />
         </div>
 
         <div className="2xl:w-[520px] absolute 2xl:top-[140px] 2xl:right-[100px]">
-          <p className="text-[20px] text-white leading-[160%] custom-tracking">
+          <p className="text-[20px] 3xl:text-[28px] text-white leading-[160%] custom-tracking">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut

@@ -6,6 +6,7 @@ import globeImg from "../../public/images/globeImg.svg";
 import paintImg from "../../public/images/paintImg.svg";
 import mobileImg from "../../public/images/mobileImg.svg";
 import apartmentImg from "../../public/images/apartmentImg.svg";
+import wwSRedBlur from "../../public/images/wwServe-red-blur.svg";
 
 const WhatWeDoServe = () => {
   const services = [
@@ -40,10 +41,10 @@ const WhatWeDoServe = () => {
   ];
 
   return (
-    <div className="">
+    <div className="relative">
       <div className="py-16 ">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-12">
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 z-50">
             <Image
               src={whatWeServeImg}
               alt="What we serve"
@@ -59,6 +60,10 @@ const WhatWeDoServe = () => {
             </p>
           </div>
         </div>
+      </div>
+
+      <div className="absolute z-0 2x 2xl:-left-[50px] 2xl:-top-[900px] ">
+        <Image src={wwSRedBlur} className="w-full h-full z-0" />
       </div>
 
       <section className="text-white pb-24 2xl:mt-[102px]">

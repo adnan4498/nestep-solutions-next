@@ -1,13 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --breakpoint-xs: 30rem;
-  --breakpoint-2xl: 90rem;
-  --breakpoint-3xl: 100rem;
+  --breakpoint-xs: 30rem;      /* 480px */
+  --breakpoint-lg-1080: 67.5rem; /* 1080px */
+  --breakpoint-xl-1280: 80rem;   /* 1280px */
+  --breakpoint-2xl: 90rem;     /* 1440px */
+  --breakpoint-3xl: 100rem;    /* 1600px */
 }
 
 body{
-  background-color: #62210d;
+  background-color: black;
 }
 
 .custom-tracking {

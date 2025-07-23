@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-import logo from "../../public/images/logo.svg"
+import logo from "../../public/images/logo.svg";
 import { Button } from "@/components/ui/moving-border";
 
 const Navbar = () => {
@@ -28,18 +28,24 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = ["Home", "About Us", "What We do", "Testimonial", "Industries"];
+  const navItems = [
+    "Home",
+    "About Us",
+    "What We do",
+    "Testimonial",
+    "Industries",
+  ];
 
   return (
     <nav
       className={`py-8 md:py-10 px-[36px] fixed w-full z-50 top-0 start-0 transition-all duration-300 ${
         scrolled
-          ? "bg-[#00051C]/60 backdrop-blur-xl shadow-md "
+          // ? "bg-[#00051C]/60 backdrop-blur-xl shadow-md "
+          ? "bg-[#983414]/20 backdrop-blur-xl shadow-md "
           : "bg-transparent"
       }`}
     >
       <div className="w-full flex flex-wrap items-center justify-between">
-        {/* Logo */}
         <div className="flex items-center">
           <Image
             src={logo}
@@ -50,7 +56,6 @@ const Navbar = () => {
           />
         </div>
 
-        {/* Desktop Navigation Items - Center */}
         <div className="hidden cursor-pointer md:flex justify-center gap-[64px] 3xl:gap-[96px] text-base 3xl:text-lg font-light group">
           {navItems.map((item) => (
             <div
@@ -67,17 +72,16 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Get Started Button and Mobile Menu Toggle */}
-        <div className="flex md:order-2 items-center">
+        <div className="flex md:order-2 items-center ">
           <Button
-            className="font-semibold text-lg cursor-pointer"
+            className="font-semibold text-lg cursor-pointer !border-2 !borer-[#d97749] bg-[#e65914]"
             containerClassName="hidden md:inline-block"
             borderRadius="9999px"
             duration={3000}
           >
-            Get started
+            Sign up
           </Button>
-          
+
           <button
             onClick={toggleMenu}
             type="button"
@@ -118,7 +122,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`fixed inset-0 z-40 bg-black bg-opacity-90 transition-all duration-300 transform ${
           isMenuOpen ? "translate-y-0" : "-translate-y-full"
