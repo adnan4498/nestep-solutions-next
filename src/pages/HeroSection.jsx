@@ -113,7 +113,7 @@ const HeroSection = () => {
               ref={buttonRef}
               className="flex overflow-hidden border-2 border-[#D84315] rounded-[10px] bg-[#FF5722] 2xl:rounded-[10px] relative cursor-pointer"
             >
-              <div className="bg-transparent lg-1080:w-[125px] lg-1080:h-[46px] xl-1280:w-[140px] xl-1280:h-[51px] 2xl:w-[151px] 2xl:h-[56px] flex items-center justify-center z-20">
+              <div className="bg-transparent lg-1080:w-[125px] lg-1080:h-[46px] xl-1280:w-[140px] xl-1280:h-[51px] 2xl:w-[151px] 2xl:h-[px] flex items-center justify-center z-20">
                 <span
                   ref={textRef}
                   className="text-white lg-1080:text-[14px] xl-1280:text-[15px] 2xl:text-[16px] font-medium z-30"
@@ -157,11 +157,11 @@ const HeroSection = () => {
         </div> */}
 
          <div>
-          <div className="absolute 2xl:right-0 2xl:-top-10 z-50 3xl:-right-[150px]">
+          <div className="absolute 2xl:right-0 2xl:-top-13 3xl:bottom-10 z-50 3xl:-right-[150px]">
             <Image src={heroGuy} />
           </div>
 
-          <div className="absolute 2xl:right-4  2xl:-top-14 z-50  3xl:-right-[150px]">
+          <div className="absolute 2xl:right-4  2xl:-top-16 3xl:-top-20 z-50  3xl:-right-[145px]">
             <Image src={heroSkeleton} className="opacity-20 hover:opacity-100 transition-all ease-in-out duration-1100" />
           </div>
 

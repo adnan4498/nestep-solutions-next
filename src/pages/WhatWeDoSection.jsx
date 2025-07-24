@@ -3,16 +3,70 @@ import whatWeDoImg from "../../public/images/WhatWeDo.svg";
 import Image from "next/image";
 import robotImg from "../../public/images/whatWeDoRobot.svg";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import rightUpVector from "../../public/images/upper-right-vector.svg";
 
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
+
 const WhatWeDoSection = () => {
+  const containerRef = useRef(null);
   const buttonRef = useRef(null);
   const textRef = useRef(null);
   const arrowDivRef = useRef(null);
   const arrowRef = useRef(null);
   const wheelRef = useRef(null);
+  const titleRef = useRef(null);
+  const topTextRef = useRef(null);
+  const bottomTextRef = useRef(null);
 
   useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Initial states - hide text elements
+      gsap.set([titleRef.current, topTextRef.current], {
+        opacity: 0,
+        y: 50
+      });
+      
+      gsap.set(bottomTextRef.current, {
+        opacity: 0,
+        x: 50
+      });
+
+      // Text entrance animation timeline
+      const textTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse"
+        }
+      });
+
+      // Animate text elements in sequence
+      textTl
+        .to(titleRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out"
+        })
+        .to(topTextRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out"
+        }, "-=0.6")
+        .to(bottomTextRef.current, {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          ease: "power3.out"
+        }, "-=0.4");
+
+    }, containerRef);
+
+    // Original wheel rotation and button hover animations
     const button = buttonRef.current;
     const text = textRef.current;
     const arrowDiv = arrowDivRef.current;
@@ -57,24 +111,29 @@ const WhatWeDoSection = () => {
       gsap.fromTo(arrow, { rotate: 49 }, { rotate: 0, duration: 0.4 });
     };
 
-    button.addEventListener("mouseenter", handleEnter);
-    button.addEventListener("mouseleave", handleLeave);
+    if (button) {
+      button.addEventListener("mouseenter", handleEnter);
+      button.addEventListener("mouseleave", handleLeave);
+    }
 
     return () => {
-      button.removeEventListener("mouseenter", handleEnter);
-      button.removeEventListener("mouseleave", handleLeave);
+      ctx.revert();
+      if (button) {
+        button.removeEventListener("mouseenter", handleEnter);
+        button.removeEventListener("mouseleave", handleLeave);
+      }
     };
   }, []);
 
   return (
-    <div>
+    <div ref={containerRef}>
       <div>
         <div className="flex justify-between items-center">
-          <div>
-            <Image src={whatWeDoImg} />
+          <div ref={titleRef}>
+            <Image src={whatWeDoImg} alt="What We Do" />
           </div>
           <div>
-            <div className="2xl:w-[562px]">
+            <div ref={topTextRef} className="2xl:w-[562px]">
               <p className="text-[20px] text-white leading-[160%] custom-tracking">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -88,16 +147,18 @@ const WhatWeDoSection = () => {
 
       <div className="2xl:mt-[100px] relative">
         <div>
-          <Image src={robotImg} className="rounded-4xl 3xl:w-full" />
+          <Image src={robotImg} className="rounded-4xl 3xl:w-full" alt="Robot" />
         </div>
 
         <div className="2xl:w-[520px] absolute 2xl:top-[140px] 2xl:right-[100px]">
-          <p className="text-[20px] 3xl:text-[28px] text-white leading-[160%] custom-tracking">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat
-          </p>
+          <div ref={bottomTextRef}>
+            <p className="text-[20px] 3xl:text-[28px] text-white leading-[160%] custom-tracking">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+              ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+              aliquip ex ea commodo consequat
+            </p>
+          </div>
           <div className="2xl:mt-[61px] 2xl:w-[210px] 2xl:h-[60px] relative">
             <div
               ref={buttonRef}

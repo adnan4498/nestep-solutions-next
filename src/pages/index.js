@@ -33,12 +33,12 @@ export default function Home() {
           <WhatWeDoServe />
         </div>
 
-        <div className="mt-[287px] mx-[40px] mb-[100px]">
+        <div className="mt-[137px] mx-[40px] mb-[100px]">
           <NewsAndUpdateSection />
         </div>
 
         <div className="bg-black 2xl:h-[px] px-[40px] mb-[px]">
-          <div className="mt-[287px] pt-[106px]">
+          <div className="mt-[137px] pt-[106px]">
             <WhatUsersSaysSection />
           </div>
         </div>
